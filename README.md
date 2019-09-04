@@ -22,10 +22,16 @@ docker run --rm -it --pid=container:$id --cap-add sys_ptrace wrboyce/utils:strac
 docker run --rm -it --pid=host --cap-add sys_ptrace wrboyce/utils:strace -p $pid
 ```
 
-### tcpdump
+### tcpdump / tshark
 
 `tcpdump` "any" interface on the host:
 
 ```
 docker run --rm -it --net=host --cap-add sys_ptrace wrboyce/utils:tcpdump
+```
+
+`tshark` a container's traffic on eth0:
+
+```
+docker run --rm -it --net=container:$id wrboyce/utils:tshark -i eth0
 ```

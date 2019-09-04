@@ -2,6 +2,12 @@
 
 ## Usage
 
+### htop
+
+```
+docker run --rm -it --pid=host wrboyce/utils:htop
+```
+
 ### strace
 
 `strace` a container's init process:

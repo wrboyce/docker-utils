@@ -14,6 +14,12 @@ docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro wrboyce/util
 docker run --rm -it --pid=host wrboyce/utils:htop
 ```
 
+### jq
+
+```
+docker run --rm -i wrboyce/utils:jq </path/to/file.json
+```
+
 ### strace
 
 `strace` a container's init process:

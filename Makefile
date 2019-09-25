@@ -8,6 +8,12 @@ all:
 clean:
 	@$(foreach DIR, $(wildcard *), test -f $(DIR)/Dockerfile && docker rmi $(DOCKER_USERNAME)/$(DOCKER_REPONAME):$(DIR) ;)
 
+build:
+	@$(foreach DIR, $(wildcard *), test -f $(DIR)/Dockerfile && docker buildx build --platform $(DOCKER_PLATFORMS) --load -t $(DOCKER_USERNAME)/$(DOCKER_REPONAME):$(DIR) $(DIR) ;)
+
+test:
+	@$(foreach DIR, $(wildcard *), test -f $(DIR)/Dockerfile && docker run --rm $(DOCKER_USERNAME)/$(DOCKER_REPONAME):$(DIR) -h ;)
+
 publish:
 	@$(foreach DIR, $(wildcard *), test -f $(DIR)/Dockerfile && docker buildx build --platform $(DOCKER_PLATFORMS) --push -t $(DOCKER_USERNAME)/$(DOCKER_REPONAME):$(DIR) $(DIR) ;)
 

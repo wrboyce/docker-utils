@@ -52,8 +52,10 @@ docker run --rm -i wrboyce/utils:iperf3 -s $server
 
 ### jq
 
+pretty print a json file:
+
 ```
-docker run --rm -i wrboyce/utils:jq </path/to/file.json
+docker run --rm -i wrboyce/utils:jq -C </path/to/file.json
 ```
 
 ### lsof
@@ -86,6 +88,14 @@ show ntp peers status:
 
 ```
 docker run --rm -it wrboyce/utils:ntpq -c peers 10.1.1.1
+```
+
+### rq
+
+convert a toml file to json:
+
+```
+docker run --rm -i wrboyce/utils:rq --input-toml --output-json </path/to/file.json
 ```
 
 ### strace

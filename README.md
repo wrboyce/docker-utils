@@ -14,6 +14,20 @@ docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock:ro wrboyce/util
 docker run --rm -it --pid=host wrboyce/utils:htop
 ```
 
+### iperf3
+
+run an `iperf3` server:
+
+```
+docker run --rm -i --net=host wrboyce/utils:iperf3 -s
+```
+
+run an `iperf3` test:
+
+```
+docker run --rm -i wrboyce/utils:iperf3 -s $server
+```
+
 ### jq
 
 ```

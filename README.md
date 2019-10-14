@@ -2,6 +2,13 @@
 
 ## Usage
 
+All images should be published to docker hub built for `amd64`, `arm64`, and `arm/v7`. If a desired
+architecture is not available, then the `make gen` command can be used to generate some one-line
+commands to have docker build the image locally. This also seems to be necessary sometimes even if
+there is an appropriate build available. As it stands I'm not sure why.
+
+## Examples
+
 ### ctop
 
 ```

@@ -34,6 +34,14 @@ docker run --rm -i wrboyce/utils:iperf3 -s $server
 docker run --rm -i wrboyce/utils:jq </path/to/file.json
 ```
 
+### nmap
+
+scan all ports on the host's localhost interface:
+
+```
+docker run --rm -it --pid=host wrboyce/utils:nmap -p- -T5 localhost
+```
+
 ### strace
 
 `strace` a container's init process:

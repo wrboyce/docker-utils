@@ -1,13 +1,20 @@
-[![Docker Cloud Automated build](https://img.shields.io/docker/cloud/automated/wrboyce/utils)](https://hub.docker.com/r/wrboyce/utils)
+# Docker Utils
 
 ## Usage
 
 All images should be published to docker hub built for `amd64`, `arm64`, and `arm/v7`. If a desired
 architecture is not available, then the `make gen` command can be used to generate some one-line
-commands to have docker build the image locally. This also seems to be necessary sometimes even if
-there is an appropriate build available. As it stands I'm not sure why.
+commands to have docker build the image locally. 
 
 ## Examples
+
+### bwm-ng
+
+monitor bandwidth usage on all host interfaces:
+
+```
+docker run --rm -it --net=host wrboyce/utils:bwm-ng
+```
 
 ### ctop
 
@@ -41,12 +48,36 @@ docker run --rm -i wrboyce/utils:iperf3 -s $server
 docker run --rm -i wrboyce/utils:jq </path/to/file.json
 ```
 
+### lsof
+
+list all open sockets on host:
+
+```
+docker run --rm -it -v /proc:/proc --net=host --privileged wrboyce/utils:lsof -i
+```
+
 ### nmap
 
 scan all ports on the host's localhost interface:
 
 ```
-docker run --rm -it --pid=host wrboyce/utils:nmap -p- -T5 localhost
+docker run --rm -it --net=host wrboyce/utils:nmap -p- -T5 localhost
+```
+
+### ntop
+
+the default `ntop` password is 'admin', and the default port is 8888.
+
+```
+docker run --rm -it --net=host wrboyce/utils:ntop
+```
+
+### ntpq
+
+show ntp peers status:
+
+```
+docker run --rm -it wrboyce/utils:ntpq -c peers 10.1.1.1
 ```
 
 ### strace

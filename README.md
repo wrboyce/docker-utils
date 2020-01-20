@@ -8,6 +8,14 @@ commands to have docker build the image locally.
 
 ## Examples
 
+### bandwhich
+
+monitor bandwhich usage include per-process, per-connection, and per-host views:
+
+```
+docker run --rm -it --net=host --pid=host --privileged wrboyce/utils:bandwhich
+```
+
 ### bwm-ng
 
 monitor bandwidth usage on all host interfaces:

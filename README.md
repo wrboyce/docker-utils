@@ -4,7 +4,7 @@
 
 All images should be published to docker hub built for `amd64`, `arm64`, and `arm/v7`. If a desired
 architecture is not available, then the `make gen` command can be used to generate some one-line
-commands to have docker build the image locally. 
+commands to have docker build the image locally.
 
 ## Examples
 
@@ -14,6 +14,12 @@ monitor bandwhich usage include per-process, per-connection, and per-host views:
 
 ```
 docker run --rm -it --net=host --pid=host --privileged wrboyce/utils:bandwhich
+```
+
+### btop
+
+```
+docker run --rm -it --net=host --pid=host --privileged wrboyce/utils:btop
 ```
 
 ### bwm-ng
